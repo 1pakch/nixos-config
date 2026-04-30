@@ -2,7 +2,7 @@
   description = "ilya's nixos configuration flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/bcd464ccd2a1";
+    nixpkgs.url = "github:nixos/nixpkgs/25.11";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
