@@ -1,10 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -19,8 +23,11 @@
   time.timeZone = "Europe/Zurich";
 
   # Allow nix flakes and non-free sofware
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true; 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -36,7 +43,7 @@
 
   # Enable the X11 windowing system.
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true; 
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -62,7 +69,12 @@
   # User accounts
   users.users.ilya = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+    ];
     initialPassword = "changeme";
     packages = with pkgs; [
       neovim
@@ -77,6 +89,7 @@
       wl-clipboard
       direnv
       nix-direnv
+      nixfmt
     ];
   };
 
@@ -111,4 +124,3 @@
   services.logind.settings.Login.HandleLidSwitch = "suspend";
 
 }
-
