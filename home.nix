@@ -10,6 +10,8 @@
     rebuild = "sudo nixos-rebuild switch --flake ~/nixos";
   };
 
+  programs.bash.enable = true; # otherwise aliases are not picked up
+
   programs.git = {
     enable = true;
     includes = [
@@ -22,7 +24,15 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash.enable = true; # otherwise aliases are not picked up
+  programs.vscode = {
+    enable = true;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      ms-python.vscode-pylance
+      vscodevim.vim
+    ];
+  };
+
   programs.home-manager.enable = true;
 
   # Don't change ever. This tells Home Manager what version your home directory
