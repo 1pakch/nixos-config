@@ -101,6 +101,9 @@
     wget
   ];
 
+  # Set vim as a default editor for all
+  environment.variables.EDITOR = "vim";
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used for compatibility with application data (e.g. databases) created on older NixOSes.
   # Most users should NEVER change this value after the initial install, for any reason.
