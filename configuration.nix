@@ -77,6 +77,7 @@
     ];
     initialPassword = "changeme";
     packages = with pkgs; [
+      pciutils
       neovim
       tree
       ripgrep
