@@ -17,6 +17,14 @@
     includes = [
       { path = "~/.config/git/private"; }
     ];
+    ignores = [
+      ".*.swo"
+      ".*.swp"
+      ".direnv"
+      "*.pyc"
+      "__pycache__"
+      ".vscode"
+    ];
   };
 
   programs.direnv = {
