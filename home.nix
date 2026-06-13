@@ -3,6 +3,11 @@
   home.username = "ilya";
   home.homeDirectory = "/home/ilya";
 
+  # allow unfree packages via `nix-shell`
+  home.file.".config/nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+  '';
+
   home.shellAliases = {
     ll = "ls -la";
     lh = "ls -lh";
